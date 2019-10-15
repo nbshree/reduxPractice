@@ -12,7 +12,7 @@ class TodoList extends Component {
         store.subscribe(this.storeChange) //订阅Redux的状态
     }
     storeChange(){
-        this.setState(store.getState())
+        this.setState(store.getState());
     }
     render() {
         return (
