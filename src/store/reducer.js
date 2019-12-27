@@ -12,13 +12,18 @@ export default (state = defaultState, action) => {
             return {
                 ...state,
                 inputValue: action.value
-            }
+            };
         }
         case 'addItem':{
             return {
                 ...state,
                 list: [...state.list,state.inputValue]
-            }
+            };
+        }
+        case 'getList':{
+            let newState = JSON.parse(JSON.stringify(state));
+            newState.list = action.data.data.list; //复制性的List数组进去
+            return newState;
         }
     }
     return state
