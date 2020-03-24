@@ -9,7 +9,6 @@ class TodoList extends Component {
     constructor(props) {
         super(props);
         this.state = this.props;
-        const changeInputValue = this.props.changeInputValue;
         console.log(this.state)
         // this.changeInputValue = this.changeInputValue.bind(this);
         this.storeChange = this.storeChange.bind(this); //转变this指向
@@ -26,11 +25,12 @@ class TodoList extends Component {
     // }
 
     render() {
+        const changeInputValue = this.props.changeInputValue;
         return (
             <div>
                 <div>
                     <Input placeholder={this.state.inputValue} style={{width: '250px'}}
-                           onChange={this.changeInputValue}/>
+                           onChange={changeInputValue}/>
                     <Button type="primary" onClick={this.clickBtn}>增加</Button>
                 </div>
                 <div style={{margin: '10px', width: '300px'}}>
