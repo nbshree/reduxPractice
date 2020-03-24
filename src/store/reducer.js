@@ -25,6 +25,9 @@ export default (state = defaultState, action) => {
             newState.list = action.data.data.list; //复制性的List数组进去
             return newState;
         }
+        default:{
+            break;
+        }
     }
     return state
 }

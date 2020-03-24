@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import TodoList from './TodoList'
-
-ReactDOM.render(<TodoList/>,document.getElementById('root'));
+import store from './store/index'
+import { Provider} from 'react-redux'
+ReactDOM.render(<Provider store={store}><TodoList/></Provider>,document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
