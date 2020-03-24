@@ -19,7 +19,7 @@ const AddTodo = ({addChange, addClick}) => {
         </div>
     );
 };
-Todo.propTypes = {
+AddTodo.propTypes = {
     addChange: PropTypes.func.isRequired,
     addClick: PropTypes.func.isRequired,
 };

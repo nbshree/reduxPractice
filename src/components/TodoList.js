@@ -10,7 +10,7 @@ const TodoList = ({onClick, list}) => (
     </ul>
 );
 
-Todo.propTypes = {
+TodoList.propTypes = {
     onClick: PropTypes.func.isRequired,
     list: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,

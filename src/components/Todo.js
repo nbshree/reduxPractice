@@ -16,7 +16,6 @@ class Todo extends Component {
     }
 }
 Todo.propTypes = {
-    // list:PropTypes.array,
     onClick: PropTypes.func.isRequired,
     completed: PropTypes.bool.isRequired,
     text: PropTypes.string.isRequired
