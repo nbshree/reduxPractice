@@ -10,27 +10,33 @@ class TodoList extends Component {
         super(props);
         this.state = this.props;
         console.log(this.state)
+        this.getTodoList = this.props.getTodoList;
+        this.changeInputValue = this.props.changeInputValue;
+        // this.storeChange = ()=>{
+        //     this.setState(store.getState());
+        // };
         // this.changeInputValue = this.changeInputValue.bind(this);
-        this.storeChange = this.storeChange.bind(this); //转变this指向
-        store.subscribe(this.storeChange) //订阅Redux的状态
+        // this.storeChange = this.storeChange.bind(this); //转变this指向
+        store.subscribe(()=>{
+            this.setState(store.getState());
+        }) //订阅Redux的状态
     }
 
-    storeChange() {
-        this.setState(store.getState());
-    }
-    //
-    // componentDidMount() {
-    //     const action = getTodoList();
-    //     store.dispatch(action)
+    // storeChange() {
+    //     this.setState(store.getState());
     // }
+    //
+    componentDidMount() {
+        this.getTodoList();
+    }
 
     render() {
-        const changeInputValue = this.props.changeInputValue;
+
         return (
             <div>
                 <div>
                     <Input placeholder={this.state.inputValue} style={{width: '250px'}}
-                           onChange={changeInputValue}/>
+                           onChange={(e)=>{this.changeInputValue(e)}}/>
                     <Button type="primary" onClick={this.clickBtn}>增加</Button>
                 </div>
                 <div style={{margin: '10px', width: '300px'}}>
@@ -66,8 +72,9 @@ function mapStateToProps(state, ownProps) {
 }
 function mapDispatchToProps(dispatch) {
     return {
-        ...getTodoList(dispatch),
-        changeInputValue: (e) => dispatch(changeInputAction(e.target.value))
+        // ...getTodoList(dispatch),
+        changeInputValue: (e) => dispatch(changeInputAction(e.target.value)),
+        getTodoList:(e)=>dispatch(getTodoList())
 
     }
 }
