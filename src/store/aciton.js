@@ -10,10 +10,13 @@ export const addTodo = text => ({
     id: nextId++,
     text
 });
-export const toggleTodo = id => ({
-    type: TOGGLE_TODO,
-    id
-});
+export const toggleTodo = id => {
+    console.log(id)
+    return {
+        type: TOGGLE_TODO,
+        id
+    }
+}
 export const setVisibilityFilter = filter => {
     console.log(filter);
     return ({

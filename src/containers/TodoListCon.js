@@ -16,6 +16,8 @@ const getList = (list, filterType) => {
 };
 
 function mapStateToProps(state) {
+    console.log(state)
+    console.log(getList(state.list, state.filters))
     return {
         list: getList(state.list, state.filters)
     };
