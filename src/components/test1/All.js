@@ -17,6 +17,9 @@ class All extends Component {
         return (
             <div>
                 <Word onRef={this.onRef}/>
+{/*
+                <Word ref={(Word)=>{this.Word=Word}}/>
+*/}
                 <MyButton changeColor={(color) => this.changeColor(color)}/>
             </div>
         )
